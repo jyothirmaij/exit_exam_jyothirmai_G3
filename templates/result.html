@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Revenue estimate | Enterprise Revenue Estimator{% endblock %}
+{% block content %}
+<section class="result-card">
+  <p class="eyebrow">Prediction result</p>
+  <h1>Estimated annual revenue</h1>
+  <p class="result-amount">{{ currency }} {{ "{:,.2f}".format(revenue) }}</p>
+  <p class="muted">
+    For {{ company_type }} enterprise in {{ jurisdiction }} for {{ year }}.
+  </p>
+  <p class="disclaimer">
+    This is a statistical estimate based on the training dataset, not a verified
+    financial statement. Currency selection does not convert values supplied in
+    other currencies; enter net income and market capitalization in their
+    respective selected currencies.
+  </p>
+  <a class="button" href="{{ url_for('predict') }}">Make another prediction</a>
+</section>
+{% endblock %}

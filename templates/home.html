@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Project overview | Enterprise Revenue Estimator{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">Enterprise analytics</p>
+  <h1>Estimate annual enterprise revenue</h1>
+  <p class="lead">
+    Explore a machine-learning estimate based on enterprise size, structure,
+    jurisdiction, and available financial indicators.
+  </p>
+  <a class="button" href="{{ url_for('predict') }}">Start a prediction</a>
+</section>
+
+<section class="card">
+  <h2>Project overview</h2>
+  <p>
+    This application uses a Gradient Boosting model trained from the supplied
+    enterprise dataset. The model was trained using {{ "{:,}".format(training_rows) }}
+    records with available, non-negative revenue values.
+  </p>
+  <p>
+    The prediction is an estimate, not a reported or guaranteed figure. Data in
+    the source file contains multiple currencies; choose the currency matching
+    the enterprise's reported revenue.
+  </p>
+</section>
+{% endblock %}
